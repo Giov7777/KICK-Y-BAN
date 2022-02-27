@@ -119,7 +119,7 @@ Examples: `1` or `1,2,3`
 7. Submit a pull request
 
 ## 📝 Créditos
-* [DISCORD] (https://discord.gg/PsgT32y8nn)
-* [YOUTUBE] (https://youtube.com/tecnobros)
+* [DISCORD](https://discord.gg/PsgT32y8nn)
+* [YOUTUBE](https://youtube.com/tecnobros)
 
 Copyright © **1ly4s0#2477** - 2022
