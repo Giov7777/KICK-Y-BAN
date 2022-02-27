@@ -29,10 +29,10 @@ client.on('message', message => {
           member
             .kick(razon)
             .then(() => {
-              message.channel.send(`@${user.tag} Kickeado con éxito `);
+              message.channel.send(`@${user.tag} Kickeado con éxito`);
             })
             .catch(err => {
-              message.channel.send('Tú no tienes acceso al !kick');
+              message.channel.send('Tú no tienes acceso al tb!kick');
               console.error(err);
             });
         } else {
@@ -64,17 +64,17 @@ client.on('message', message => {
               reason: 'They were bad!',
             })
             .then(() => {
-              message.channel.send(`@${user.tag} Kickeado con éxito `);
+              message.channel.send(`@${user.tag} Baneado con éxito `);
             })
             .catch(err => {
-              message.channel.send('Tú no tienes acceso al !kick');
+              message.channel.send('Tú no tienes acceso al tb!ban');
               console.error(err);
             });
         } else {
           message.channel.send("¡Ese usuario no está en este servidor!");
         }
       } else {
-        message.channel.send("No mencionaste al usuario que quieres kickear");
+        message.channel.send("No mencionaste al usuario que quieres banear");
       }
     }
   });
