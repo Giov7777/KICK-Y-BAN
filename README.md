@@ -31,10 +31,6 @@ client.on('message', message => {
             .then(() => {
               message.channel.send(`@${user.tag} Kickeado con éxito`);
             })
-            .catch(err => {
-              message.channel.send('Tú no tienes acceso al tb!kick');
-              console.error(err);
-            });
         } else {
           message.channel.send("¡Ese usuario no está en este servidor!");
         }
@@ -66,10 +62,6 @@ client.on('message', message => {
             .then(() => {
               message.channel.send(`@${user.tag} Baneado con éxito `);
             })
-            .catch(err => {
-              message.channel.send('Tú no tienes acceso al tb!ban');
-              console.error(err);
-            });
         } else {
           message.channel.send("¡Ese usuario no está en este servidor!");
         }
