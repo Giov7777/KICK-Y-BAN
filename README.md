@@ -2,119 +2,97 @@
 
 ![logo](https://cdn.discordapp.com/attachments/933698201486237716/947555143795228682/Diseno_sin_titulo_22.png)
 
-# 🤖 EvoBot (Discord Music Bot)
-> EvoBot is a Discord Music Bot built with discord.js & uses Command Handler from [discordjs.guide](https://discordjs.guide)
-## Requirements
+# 🤖 Tutorial Discord Bot (TECNO BROS)
+> Código del bot del tutorial de TECNO BROS, el vídeo es [este](link)
+## Requisitos
 
-1. Discord Bot Token **[Guide](https://discordjs.guide/preparations/setting-up-a-bot-application.html#creating-your-bot)**
-2. YouTube Data API v3 Key **[Guide](https://developers.google.com/youtube/v3/getting-started)**  
-2.1 **(Optional)** Soundcloud Client ID **[Guide](https://github.com/zackradisic/node-soundcloud-downloader#client-id)**
-3. Node.js v14.0.0 or newer
+1. Tener un bot de Discord creado **[Guía](A)**
+2. Tener Discord.js V12 o Discord.js V13 **[Guía](A)**
+3. Tener el bot hosteado o en tu PC **[Guía](A)**  
+4.1 **(Opcional)** Tener el bot en algun host **[Guía](A)**
 
-## 🚀 Getting Started
+## 🚀 Código de KICK
 
-```sh
-git clone https://github.com/eritislami/evobot.git
-cd evobot
-npm install
+```js
+client.on('message', message => {
+    if (!message.guild) return;
+  
+    if (message.content.startsWith('tb!kick')) {
+        const args = message.content.trim().split(/ +/g);
+      const user = message.mentions.users.first();
+      let razon = args.slice(2).join(" ");
+      if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("No tienes permisos para kickear a usuarios");
+        if(!razon) return message.channel.send("Pon una razón del baneo");
+      if (user) {
+        const member = message.guild.members.resolve(user);
+        if (member) {
+          member
+            .kick(razon)
+            .then(() => {
+              message.channel.send(`@${user.tag} Kickeado con éxito `);
+            })
+            .catch(err => {
+              message.channel.send('Tú no tienes acceso al !kick');
+              console.error(err);
+            });
+        } else {
+          message.channel.send("¡Ese usuario no está en este servidor!");
+        }
+      } else {
+        message.channel.send("No mencionaste al usuario que quieres kickear");
+      }
+    }
+  });
 ```
+## 🚀 Código de BAN
 
-After installation finishes follow configuration instructions then run `node index.js` to start the bot.
-
-## ⚙️ Configuration
-
-Copy or Rename `config.json.example` to `config.json` and fill out the values:
-
-⚠️ **Note: Never commit or share your token or api keys publicly** ⚠️
-
-```json
-{
-  "TOKEN": "",
-  "YOUTUBE_API_KEY": "",
-  "SOUNDCLOUD_CLIENT_ID": "",
-  "MAX_PLAYLIST_SIZE": 10,
-  "PREFIX": "/",
-  "PRUNING": false,
-  "LOCALE": "en",
-  "DEFAULT_VOLUME": 100,
-  "STAY_TIME": 30
-}
+```js
+client.on('message', message => {
+    if (!message.guild) return;
+  
+    if (message.content.startsWith('tb!ban')) {
+      const args = message.content.trim().split(/ +/g);
+      const user = message.mentions.users.first();
+      let razon = args.slice(2).join(" ");
+      if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("No tienes permisos para banear a usuarios");
+      if(!razon) return message.channel.send("Pon una razón del baneo");
+      if (user) {
+        const member = message.guild.members.resolve(user);
+        if (member) {
+          member
+            .ban({
+              reason: 'They were bad!',
+            })
+            .then(() => {
+              message.channel.send(`@${user.tag} Kickeado con éxito `);
+            })
+            .catch(err => {
+              message.channel.send('Tú no tienes acceso al !kick');
+              console.error(err);
+            });
+        } else {
+          message.channel.send("¡Ese usuario no está en este servidor!");
+        }
+      } else {
+        message.channel.send("No mencionaste al usuario que quieres kickear");
+      }
+    }
+  });
 ```
+Después de modificar o añadir algo al código, recuerda o reiniciar tu bot o usar el comando `node index.js` para que los cambios se apliquen.
 
-## 🐬 Docker Configuration
+## ⚙️ Uso:
 
-For those who would prefer to use our [Docker container](https://hub.docker.com/repository/docker/eritislami/evobot), you may provide values from `config.json` as environment variables.
-
-```shell
-docker run -e "TOKEN=<discord-token>" -e "YOUTUBE_API_KEY=<youtube-key>" eritislami/evobot
-```
-
-## 📝 Features & Commands
-
-> Note: The default prefix is '/'
-* 🎶 Play music from YouTube via url
-
-`/play https://www.youtube.com/watch?v=GLvohMXgcBo`
-
-* 🔎 Play music from YouTube via search query
-
-`/play under the bridge red hot chili peppers`
-
-* 🎶 Play music from Soundcloud via url
-
-`/play https://soundcloud.com/blackhorsebrigade/pearl-jam-alive`
-
-* 🔎 Search and select music to play
-
-`/search Pearl Jam`
-
-Reply with song number or numbers seperated by comma that you wish to play
-
-Examples: `1` or `1,2,3`
-
-* 📃 Play youtube playlists via url
-
-`/playlist https://www.youtube.com/watch?v=YlUKcNNmywk&list=PL5RNCwK3GIO13SR_o57bGJCEmqFAwq82c`
-
-* 🔎 Play youtube playlists via search query
-
-`/playlist linkin park meteora`
-* Now Playing (/np)
-* Queue system (/queue, /q)
-* Loop / Repeat (/loop)
-* Shuffle (/shuffle)
-* Volume control (/volume, /v)
-* Lyrics (/lyrics, /ly)
-* Pause (/pause)
-* Resume (/resume, /r)
-* Skip (/skip, /s)
-* Skip to song # in queue (/skipto, /st)
-* Move a song in the queue (/move, /mv)
-* Remove song # from queue (/remove, /rm)
-* Play an mp3 clip (/clip song.mp3) (put the file in sounds folder)
-* List all clips (/clips)
-* Show ping to Discord API (/ping)
-* Show bot uptime (/uptime)
-* Toggle pruning of bot messages (/pruning)
-* Help (/help, /h)
-* Command Handler from [discordjs.guide](https://discordjs.guide/)
-* Media Controls via Reactions
-
-![reactions](https://i.imgur.com/9S7Omf9.png)
+## KICK
+![logo](https://cdn.discordapp.com/attachments/933698201486237716/947560035570053200/unknown.png)
+![logo](https://cdn.discordapp.com/attachments/933698201486237716/947560638769659915/unknown.png)
 
 
 
 
-
-## 🤝 Contributing
-
-1. [Fork the repository](https://github.com/eritislami/evobot/fork)
-2. Clone your fork: `git clone https://github.com/your-username/evobot.git`
-3. Create your feature branch: `git checkout -b my-new-feature`
-4. Stage changes `git add .`
-5. Commit your changes: `cz` OR `npm run commit` do not use `git commit`
-6. Push to the branch: `git push origin my-new-feature`
-7. Submit a pull request
+## BAN
+![logo](https://cdn.discordapp.com/attachments/933698201486237716/947561623982329936/unknown.png)
+![logo](https://cdn.discordapp.com/attachments/933698201486237716/947561743876493422/unknown.png)
 
 ## 📝 Créditos
 * [DISCORD](https://discord.gg/PsgT32y8nn)
