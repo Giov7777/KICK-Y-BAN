@@ -3,7 +3,7 @@
 ![logo](https://cdn.discordapp.com/attachments/933698201486237716/947555143795228682/Diseno_sin_titulo_22.png)
 
 # 🤖 Tutorial Discord Bot (TECNO BROS)
-> Código del bot del tutorial de TECNO BROS, el vídeo es [este](link)
+> Código del bot del tutorial de TECNO BROS, el vídeo es [este](https://youtu.be/aqMezdz6PlI)
 ## Requisitos
 
 1. Tener un bot de Discord creado **[Guía](A)**
