@@ -6,10 +6,10 @@
 > Código del bot del tutorial de TECNO BROS, el vídeo es [este](https://youtu.be/aqMezdz6PlI)
 ## Requisitos
 
-1. Tener un bot de Discord creado **[Guía](A)**
-2. Tener Discord.js V12 o Discord.js V13 **[Guía](A)**
-3. Tener el bot hosteado o en tu PC **[Guía](A)**  
-4.1 **(Opcional)** Tener el bot en algun host **[Guía](A)**
+1. Tener un bot de Discord creado **[Guía](https://www.youtube.com/watch?v=qXev2kf-q_0)**
+2. Tener Discord.js V12 o Discord.js V13 **[Guía](https://www.youtube.com/watch?v=qXev2kf-q_0)**
+3. Tener el bot hosteado o en tu PC **[Guía](https://www.youtube.com/watch?v=0MkVTtLoMiI)**  
+4.1 **(Opcional)** Tener el bot en algun host **[Guía](https://www.youtube.com/watch?v=0MkVTtLoMiI)**
 
 ## 🚀 Código de KICK
 
@@ -87,7 +87,7 @@ Después de modificar o añadir algo al código, recuerda o reiniciar tu bot o u
 ![logo](https://cdn.discordapp.com/attachments/933698201486237716/947561743876493422/unknown.png)
 
 ## 📝 Créditos
-* [DISCORD](https://discord.gg/PsgT32y8nn)
+* [DISCORD](https://discord.gg/tecnobros)
 * [YOUTUBE](https://youtube.com/tecnobros)
 
 Copyright © **1ly4s0#2477** - 2022
