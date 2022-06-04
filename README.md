@@ -57,7 +57,7 @@ client.on('message', message => {
         if (member) {
           member
             .ban({
-              reason: 'They were bad!',
+              reason: razon,
             })
             .then(() => {
               message.channel.send(`@${user.tag} Baneado con éxito `);
