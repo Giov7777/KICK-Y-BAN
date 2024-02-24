@@ -1,0 +1,25 @@
+client.on('message', message => {
+    if (!message.guild) return;
+  
+    if (message.content.startsWith('tb!kick')) {
+        const args = message.content.trim().split(/ +/g);
+      const user = message.mentions.users.first();
+      let razon = args.slice(2).join(" ");
+      if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("No tienes permisos para kickear a usuarios");
+        if(!razon) return message.channel.send("Pon una razón del baneo");
+      if (user) {
+        const member = message.guild.members.resolve(user);
+        if (member) {
+          member
+            .kick(razon)
+            .then(() => {
+              message.channel.send(`@${user.tag} Kickeado con éxito`);
+            })
+        } else {
+          message.channel.send("¡Ese usuario no está en este servidor!");
+        }
+      } else {
+        message.channel.send("No mencionaste al usuario que quieres kickear");
+      }
+    }
+  });
